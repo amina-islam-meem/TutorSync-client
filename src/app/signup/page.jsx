@@ -34,7 +34,7 @@ const SignupPage = () => {
     email: user.email,
     password: user.password,
     name: user.name,
-    image: user.image,
+    image: user.photoURL,
   });
 
   if (error) {
