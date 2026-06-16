@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 md:grid-cols-[auto_1fr_auto] items-center gap-4">
         
         {/* Logo*/}
-        <Link href="/" className=" pl-5 text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent"> TutorSync</Link>
+        <Link href="/" className=" pl-5 text-2xl font-extrabold color-gradient bg-clip-text text-transparent"> TutorSync</Link>
 
         {/* Middle Menu */}
         <div className="hidden md:flex justify-center items-center gap-8 text-gray-700 font-medium">

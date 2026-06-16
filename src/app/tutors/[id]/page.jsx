@@ -26,7 +26,7 @@ export default async function TutorDetailsPage(props) {
           <img
             src={tutor.photoURL}
             alt={tutor.name}
-            className="w-full h-[350px] object-cover rounded-2xl shadow-md"
+            className="w-full h-80 object-cover rounded-2xl shadow-md"
           />
 
           {/* Content */}
@@ -52,7 +52,7 @@ export default async function TutorDetailsPage(props) {
             </div>
 
             <Link href={`/booked-sessions/${tutor._id}`}
-                 className="mt-6 inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg">Book Session</Link>
+                 className="mt-6 inline-block bg-gradient text-white px-6 py-3 rounded-lg">Book Session</Link>
           </div>
 
         </div>

@@ -17,7 +17,7 @@ export default async function TutorsPage() {
   return (
     <section className="py-16 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold text-center mb-12 bg-gradient bg-clip-text text-transparent">
           All Tutors
         </h2>
 
@@ -48,7 +48,7 @@ export default async function TutorsPage() {
               <div className="text-center mt-4">
                 <Link
                   href={`/tutors/${tutor._id}`}
-                  className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition"
+                  className="bg-gradient text-white px-4 py-2 rounded-lg hover:opacity-90 transition"
                 >
                   Book Session
                 </Link>

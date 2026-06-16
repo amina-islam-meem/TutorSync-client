@@ -62,7 +62,7 @@ const SignupPage = () => {
 
         {/* Title */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-extrabold bg-gradient bg-clip-text text-transparent">
             Create Account
           </h1>
         </div>
@@ -138,7 +138,7 @@ const SignupPage = () => {
             {/* Register Button */}
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:opacity-90 transition"
+              className="w-full bg-gradient text-white py-3 rounded-xl font-semibold hover:opacity-90 transition"
             >
               Register
             </Button>

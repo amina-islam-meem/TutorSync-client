@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import { CancelBookingAlert } from "@/app/components/CancelBookingAlert";
 
 export default function MyBookedSessions() {
   const [bookings, setBookings] = useState([]);
@@ -21,35 +22,10 @@ export default function MyBookedSessions() {
         setLoading(false);
       })
       .catch(() => {
-        toast.error("Failed to load bookings ");
+        toast.error("Failed to load bookings");
         setLoading(false);
       });
   }, [userEmail]);
-
-  const handleCancel = async (id) => {
-    try {
-      const res = await fetch(
-        `http://localhost:7000/bookings/${id}`,
-        { method: "DELETE" }
-      );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast.error(data.message);
-        return;
-      }
-
-      toast.success("Booking cancelled ");
-
-      setBookings((prev) =>
-        prev.filter((booking) => booking._id !== id)
-      );
-
-    } catch {
-      toast.error("Cancel failed ");
-    }
-  };
 
   if (loading) {
     return (
@@ -59,30 +35,17 @@ export default function MyBookedSessions() {
     );
   }
 
-  if (!userEmail) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Please login to see your bookings.
-      </div>
-    );
-  }
-
   return (
     <section className="py-20 bg-gray-50 min-h-screen">
       <div className="max-w-6xl mx-auto px-6">
 
-        <h2 className="text-3xl font-bold text-center mb-12 color-gradient">
+        <h2 className=" color-gradient text-3xl font-bold text-center mb-12">
           My Booked Sessions
         </h2>
 
         {bookings.length === 0 ? (
           <div className="text-center bg-white p-10 rounded-xl shadow-md">
-            <p className="text-gray-600 text-lg">
-              You haven't booked any sessions yet.
-            </p>
-            <p className="text-gray-500 mt-2">
-              Browse tutors and book your first session today!
-            </p>
+            No bookings yet.
           </div>
         ) : (
           <div className="overflow-x-auto bg-white rounded-xl shadow-md">
@@ -117,18 +80,33 @@ export default function MyBookedSessions() {
                     </td>
 
                     <td className="px-6 py-4">
-                      <span className="inline-block bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                          booking.bookStatus === "cancelled"
+                            ? "bg-red-100 text-red-600"
+                            : "bg-green-100 text-green-600"
+                        }`}
+                      >
                         {booking.bookStatus}
                       </span>
                     </td>
 
                     <td className="px-6 py-4 text-center">
-                      <button
-                        onClick={() => handleCancel(booking._id)}
-                        className="bg-red-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition"
-                      >
-                        Cancel
-                      </button>
+                      {booking.bookStatus !== "cancelled" && (
+                        <CancelBookingAlert
+                          bookingId={booking._id}
+                          tutorName={booking.tutorName}
+                          onSuccess={(id) =>
+                            setBookings((prev) =>
+                              prev.map((b) =>
+                                b._id === id
+                                  ? { ...b, bookStatus: "cancelled" }
+                                  : b
+                              )
+                            )
+                          }
+                        />
+                      )}
                     </td>
                   </tr>
                 ))}

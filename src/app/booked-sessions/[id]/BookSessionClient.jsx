@@ -118,7 +118,7 @@ export default function BookSessionClient({ tutor }) {
             </label>
             <input
               type="text"
-              value={userEmail}
+              value={userEmail || ""}
               readOnly
               className="w-full border rounded-lg px-4 py-3 bg-gray-100"
             />
@@ -128,7 +128,7 @@ export default function BookSessionClient({ tutor }) {
           <button
             type="submit"
             disabled={loading || tutor.totalSlot <= 0}
-            className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition disabled:opacity-50"
+            className="w-full bg-gradient text-white py-3 rounded-lg font-semibold hover:opacity-90 transition disabled:opacity-50"
           >
             {loading ? "Processing..." : "Confirm Booking"}
           </button>

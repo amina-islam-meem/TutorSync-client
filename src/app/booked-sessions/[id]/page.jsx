@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import BookSessionClient from "./BookSessionClient";
 
+
 export default async function BookSessionPage({ params }) {
   const { id } = await params;
 
