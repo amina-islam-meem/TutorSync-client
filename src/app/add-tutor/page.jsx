@@ -44,7 +44,7 @@ export default function AddTutorPage() {
   return (
     <section className="py-16 bg-gray-50 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className=" color-gradient text-3xl font-bold text-center mb-8">
           Add Tutor
         </h2>
 
@@ -134,7 +134,7 @@ export default function AddTutorPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
+              className="w-full bg-gradient text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>

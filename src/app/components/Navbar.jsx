@@ -81,8 +81,8 @@ export default function Navbar() {
       </div>
     ) : (
       <>
-        <Link href="/login" className={navClass("/login")}>Login</Link>
-        <Link href="/signup" className={navClass("/signup")}>Signup</Link>
+        <Link href="/login" className={`${navClass("/login")} text-gray-700`}>Login</Link>
+        <Link href="/signup"className={`${navClass("/signup")} text-gray-700 pr-5`}> Signup</Link>
       </>
     )}
 

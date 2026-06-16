@@ -12,3 +12,11 @@
 .nav-active {
   @apply bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent;
 }
+
+.color-gradient {
+  @apply bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent;
+}
+
+.bg-gradient {
+  @apply bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600;
+}
