@@ -61,7 +61,7 @@ const LoginPage = () => {
         </div>
 
         {/* Glass Card */}
-        <Card className="backdrop-blur-lg bg-white/80 border border-white/40 rounded-2xl shadow-xl p-8">
+        <Card className="backdrop-blur-lg  bg-white/80 border border-white/40 rounded-2xl shadow-xl p-8">
           <Form onSubmit={onSubmit} className="flex flex-col gap-5">
 
             {/* Email */}
@@ -116,7 +116,7 @@ const LoginPage = () => {
           {/* Google Button */}
           <Button
             onClick={handleGoogleSignin}
-            className="w-full bg-white border border-gray-200 rounded-xl flex items-center justify-center gap-3 py-3 hover:shadow-md transition"
+            className="w-full bg-white  border border-gray-200 rounded-xl flex items-center justify-center gap-3 py-3 hover:shadow-md transition"
           >
             <FcGoogle size={20} />
             <span className="text-sm font-medium text-gray-700">
@@ -125,7 +125,7 @@ const LoginPage = () => {
           </Button>
 
           {/* Register Link */}
-          <p className="text-center text-sm text-gray-600 mt-6">
+          <p className="text-center text-sm text-gray-600  mt-6">
             Don&apos;t have an account?{" "}
             <Link href="/signup" className="text-indigo-600 font-medium hover:underline">
               Register

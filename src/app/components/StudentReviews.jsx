@@ -60,7 +60,7 @@ export default function StudentReviews() {
                 </div>
 
                 {/* Review */}
-                <p className="text-gray-600 italic mb-6">
+                <p className="text-gray-600  italic mb-6">
                   "{item.review}"
                 </p>
 

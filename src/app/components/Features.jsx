@@ -46,7 +46,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border border-gray-200"
+              className="group bg-white  p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border border-gray-200"
             >
               <div className="flex justify-center mb-6 text-indigo-600 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
@@ -56,7 +56,7 @@ export default function Features() {
                 {feature.title}
               </h4>
 
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600  text-sm leading-relaxed">
                 {feature.description}
               </p>
             </div>

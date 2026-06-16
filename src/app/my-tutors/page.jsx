@@ -117,7 +117,7 @@ export default function MyTutors() {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto bg-white rounded-xl shadow-md">
+          <div className="overflow-x-auto bg-white  rounded-xl shadow-md">
 
             <table className="min-w-full text-left">
               <thead className="bg-blue-400 text-white">
@@ -217,7 +217,7 @@ export default function MyTutors() {
         {/*  Delete Confirmation Modal */}
         {confirmDelete && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-xl w-full max-w-sm text-center">
+            <div className="bg-white  p-8 rounded-xl w-full max-w-sm text-center">
 
               <h3 className="text-lg font-semibold mb-4">
                 Delete this tutor?

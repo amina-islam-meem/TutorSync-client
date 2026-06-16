@@ -36,7 +36,7 @@ export default function MyBookedSessions() {
   }
 
   return (
-    <section className="py-20 bg-gray-50 min-h-screen">
+    <section className="py-20 bg-gray-50  min-h-screen">
       <div className="max-w-6xl mx-auto px-6">
 
         <h2 className=" color-gradient text-3xl font-bold text-center mb-12">
@@ -44,11 +44,11 @@ export default function MyBookedSessions() {
         </h2>
 
         {bookings.length === 0 ? (
-          <div className="text-center bg-white p-10 rounded-xl shadow-md">
+          <div className="text-center bg-white  p-10 rounded-xl shadow-md">
             No bookings yet.
           </div>
         ) : (
-          <div className="overflow-x-auto bg-white rounded-xl shadow-md">
+          <div className="overflow-x-auto bg-white   rounded-xl shadow-md">
 
             <table className="min-w-full text-left border-collapse">
               <thead className="bg-blue-400 text-white">
@@ -65,7 +65,7 @@ export default function MyBookedSessions() {
                 {bookings.map((booking) => (
                   <tr
                     key={booking._id}
-                    className="border-b hover:bg-gray-50 transition"
+                    className="border-b hover:bg-gray-50  transition"
                   >
                     <td className="px-6 py-4">
                       {booking.tutorName}

@@ -17,8 +17,8 @@ export default async function TutorDetailsPage(props) {
   const tutor = await res.json();
 
   return (
-    <section className="py-20 bg-gray-50 min-h-screen">
-      <div className="max-w-5xl mx-auto bg-white p-10 rounded-2xl shadow-xl">
+    <section className="py-20 bg-gray-50 min-h-screen ">
+      <div className="max-w-5xl mx-auto bg-white  p-10 rounded-2xl shadow-xl">
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
 

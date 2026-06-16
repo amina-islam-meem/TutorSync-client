@@ -13,7 +13,7 @@ export default async function TutorsPage() {
   
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 ">
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-4xl font-bold text-center mb-12">
@@ -25,7 +25,7 @@ export default async function TutorsPage() {
           {tutors.map((tutor) => (
             <div
               key={tutor._id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6"
+              className="bg-white  rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6"
             >
               <img
                 src={tutor.photoURL || "/img/default.jpg"}

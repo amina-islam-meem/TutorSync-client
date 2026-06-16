@@ -58,8 +58,8 @@ export default function BookSessionClient({ tutor }) {
   };
 
   return (
-    <section className="py-20 bg-gray-50 min-h-screen">
-      <div className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-md">
+    <section className="py-20 bg-gray-50  min-h-screen">
+      <div className="max-w-3xl mx-auto bg-white  p-10 rounded-2xl shadow-md">
 
         <h2 className="text-3xl font-bold text-center mb-6">
           Book Session with {tutor.name}

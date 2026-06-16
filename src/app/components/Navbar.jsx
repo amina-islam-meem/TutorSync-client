@@ -8,6 +8,7 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
 
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -25,7 +26,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b">
+    <nav className="sticky top-0 z-50  bg-white/80 backdrop-blur-md shadow-sm border-b ">
       <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 md:grid-cols-[auto_1fr_auto] items-center gap-4">
         
         {/* Logo*/}

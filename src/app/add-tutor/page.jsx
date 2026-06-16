@@ -47,8 +47,8 @@ export default function AddTutorPage() {
   };
 
   return (
-    <section className="py-16 bg-gray-50 min-h-screen">
-      <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow-md">
+    <section className="py-16 bg-gray-50  min-h-screen">
+      <div className="max-w-4xl mx-auto bg-white  p-10 rounded-2xl shadow-md">
         <h2 className=" color-gradient text-3xl font-bold text-center mb-8">
           Add Tutor
         </h2>
