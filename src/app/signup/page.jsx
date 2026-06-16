@@ -19,11 +19,33 @@ import toast from "react-hot-toast";
 const SignupPage = () => {
   const router = useRouter();
 
+  const validatePassword = (password) => {
+  if (password.length < 6) {
+    return "Password must be at least 6 characters long.";
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    return "Password must contain at least one uppercase letter.";
+  }
+
+  if (!/[a-z]/.test(password)) {
+    return "Password must contain at least one lowercase letter.";
+  }
+
+  return null;
+};
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
+
+    const passwordError = validatePassword(user.password);
+    if (passwordError) {
+      toast.error(passwordError);
+      return;
+    }
 
     if (user.password !== user.confirmPassword) {
       toast.error("Passwords do not match");
