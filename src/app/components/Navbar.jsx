@@ -35,10 +35,10 @@ export default function Navbar() {
         </div>
 
         {/* Right side  */}
-        <div className="hidden md:flex justify-end items-center gap-4 font-medium">
-          <Link href="/login" className="text-gray-700 nav-hover"> Login</Link>
+        <div className="hidden md:flex justify-end items-center gap-4 text-gray-700 font-medium">
+          <Link href="/login" className={navClass("/login")}> Login</Link>
 
-          <Link href="/signup" className="text-gray-700 nav-hover pr-5" > Signup</Link>
+          <Link href="/signup" className={navClass("/signup")}> Signup</Link>
         </div>
 
         {/* Mobile Menu Button */}
