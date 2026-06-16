@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 
 export default function AddTutorPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  const { data: session } = authClient.useSession();
+  const userId = session?.user?.id;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +18,7 @@ export default function AddTutorPage() {
 
     const formData = new FormData(e.target);
     const tutor = Object.fromEntries(formData.entries());
+    tutor.userId = userId;
 
     try {
       const res = await fetch("http://localhost:7000/tutors", {
