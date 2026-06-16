@@ -98,6 +98,19 @@ export default function BookSessionClient({ tutor }) {
             />
           </div>
 
+        {/* Tutor ID */}
+          <div>
+            <label className="block mb-2 font-medium">
+              Tutor ID
+            </label>
+            <input
+              type="text"
+              value={tutor._id}
+              readOnly
+              className="w-full border rounded-lg px-4 py-3 bg-gray-100"
+            />
+          </div>
+
           {/* Tutor Name */}
           <div>
             <label className="block mb-2 font-medium">
