@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function AddTutorPage() {
   const router = useRouter();
@@ -13,14 +13,7 @@ export default function AddTutorPage() {
     setLoading(true);
 
     const formData = new FormData(e.target);
-    const tutorData = Object.fromEntries(formData.entries());
-
-    // ✅ Add user info manually (replace later with real auth)
-    const tutor = {
-      ...tutorData,
-      userEmail: "demo@gmail.com", // replace with logged user
-      createdAt: new Date(),
-    };
+    const tutor = Object.fromEntries(formData.entries());
 
     try {
       const res = await fetch("http://localhost:7000/tutors", {
@@ -32,15 +25,17 @@ export default function AddTutorPage() {
       });
 
       if (!res.ok) {
-        toast.error("Failed to add tutor ❌");
+        toast.error("Failed to add tutor ");
         setLoading(false);
         return;
       }
 
-      toast.success("Tutor added successfully ✅");
+      toast.success("Tutor added successfully ");
+      e.target.reset();
       router.push("/tutors");
+
     } catch (error) {
-      toast.error("Something went wrong ❌");
+      toast.error("Something went wrong ");
     }
 
     setLoading(false);
@@ -57,36 +52,19 @@ export default function AddTutorPage() {
 
           {/* Tutor Name */}
           <div>
-            <label className="block mb-2 font-medium">
-              Tutor Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Tutor Name</label>
+            <input type="text" name="name" required className="input-style" />
           </div>
 
           {/* Photo URL */}
           <div>
-            <label className="block mb-2 font-medium">
-              Photo URL (imgbb)
-            </label>
-            <input
-              type="text"
-              name="photoURL"
-              required
-              placeholder="Paste image link"
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Photo URL</label>
+            <input type="text" name="photoURL" required className="input-style" />
           </div>
 
-          {/* Subject Dropdown */}
+          {/* Subject */}
           <div>
-            <label className="block mb-2 font-medium">
-              Subject / Category
-            </label>
+            <label className="block mb-2 font-medium">Subject</label>
             <select name="subject" required className="input-style">
               <option value="">Select Subject</option>
               <option>Mathematics</option>
@@ -100,9 +78,7 @@ export default function AddTutorPage() {
 
           {/* Teaching Mode */}
           <div>
-            <label className="block mb-2 font-medium">
-              Teaching Mode
-            </label>
+            <label className="block mb-2 font-medium">Teaching Mode</label>
             <select name="teachingMode" required className="input-style">
               <option value="">Select Mode</option>
               <option>Online</option>
@@ -113,95 +89,44 @@ export default function AddTutorPage() {
 
           {/* Available Days */}
           <div>
-            <label className="block mb-2 font-medium">
-              Available Days
-            </label>
-            <input
-              type="text"
-              name="availableDays"
-              placeholder="Sun - Thu"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Available Days</label>
+            <input type="text" name="availableDays" required className="input-style" />
           </div>
 
-          {/* Available Time Slot */}
+          {/* Time Slot */}
           <div>
-            <label className="block mb-2 font-medium">
-              Available Time Slot
-            </label>
-            <input
-              type="text"
-              name="timeSlot"
-              placeholder="5:00 PM - 8:00 PM"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Time Slot</label>
+            <input type="text" name="timeSlot" required className="input-style" />
           </div>
 
           {/* Hourly Fee */}
           <div>
-            <label className="block mb-2 font-medium">
-              Hourly Fee ($)
-            </label>
-            <input
-              type="number"
-              name="hourlyFee"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Hourly Fee</label>
+            <input type="number" name="hourlyFee" required className="input-style" />
           </div>
 
           {/* Total Slot */}
           <div>
-            <label className="block mb-2 font-medium">
-              Total Slots
-            </label>
-            <input
-              type="number"
-              name="totalSlot"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Total Slot</label>
+            <input type="number" name="totalSlot" required className="input-style" />
           </div>
 
-          {/* Session Start Date */}
+          {/* Start Date */}
           <div>
-            <label className="block mb-2 font-medium">
-              Session Start Date
-            </label>
-            <input
-              type="date"
-              name="startDate"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Start Date</label>
+            <input type="date" name="startDate" required className="input-style" />
           </div>
 
           {/* Location */}
           <div>
-            <label className="block mb-2 font-medium">
-              Location (Area/City)
-            </label>
-            <input
-              type="text"
-              name="location"
-              required
-              className="input-style"
-            />
+            <label className="block mb-2 font-medium">Location</label>
+            <input type="text" name="location" required className="input-style" />
           </div>
 
-          {/* Institution & Experience */}
+          {/* Experience */}
           <div className="md:col-span-2">
-            <label className="block mb-2 font-medium">
-              Institution & Experience
-            </label>
-            <textarea
-              name="experience"
-              rows="3"
-              required
-              className="input-style"
-            ></textarea>
+            <label className="block mb-2 font-medium">Institution & Experience</label>
+            <textarea name="experience" rows="3" required className="input-style"></textarea>
           </div>
 
           {/* Submit Button */}

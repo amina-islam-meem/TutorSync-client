@@ -6,20 +6,17 @@ export default function WhyChooseUs() {
   const features = [
     {
       title: "Verified Tutors",
-      description:
-        "All tutors are verified professionals with proven expertise.",
+      description: "All tutors are verified professionals with proven expertise.",
       icon: <ShieldCheck size={40} />,
     },
     {
       title: "Flexible Scheduling",
-      description:
-        "Book sessions anytime that fits your schedule.",
+      description: "Book sessions anytime that fits your schedule.",
       icon: <CalendarDays size={40} />,
     },
     {
       title: "Affordable Learning",
-      description:
-        "High-quality education at a reasonable price.",
+      description: "High-quality education at a reasonable price.",
       icon: <DollarSign size={40} />,
     },
   ];
@@ -34,12 +31,9 @@ export default function WhyChooseUs() {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="group bg-white p-8 rounded-2xl shadow-md 
-            hover:shadow-xl transition-all duration-300 
-            hover:-translate-y-2 border border-gray-200"
+            className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200"
           >
-            <div className="flex justify-center mb-6 text-indigo-600 
-            group-hover:scale-110 transition-transform duration-300">
+            <div className="flex justify-center mb-6 text-indigo-600 group-hover:scale-110 transition-transform duration-300">
               {feature.icon}
             </div>
 

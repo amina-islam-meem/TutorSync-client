@@ -2,10 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navClass = (path) =>
+  `${pathname === path ? "nav-active" : "nav-hover"} font-medium`;
+
+
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b">
@@ -16,15 +23,15 @@ export default function Navbar() {
 
         {/* Middle Menu */}
         <div className="hidden md:flex justify-center items-center gap-8 text-gray-700 font-medium">
-          <Link href="/" className="nav-hover"> Home</Link>
+          <Link href="/" className={navClass("/")}> Home</Link>
 
-          <Link href="/tutors" className="nav-hover"> Tutors</Link>
+          <Link href="/tutors" className={navClass("/tutors")}> Tutors</Link>
 
-          <Link href="/add-tutor" className="nav-hover">  Add Tutor</Link>
+          <Link href="/add-tutor" className={navClass("/add-tutor")}>  Add Tutor</Link>
 
-          <Link href="/my-tutors" className="nav-hover"> My Tutors </Link>
+          <Link href="/my-tutors" className={navClass("/my-tutors")}> My Tutors </Link>
 
-          <Link href="/my-booked-sessions"className="nav-hover" >My Booked Sessions</Link>
+          <Link href="/my-booked-sessions"className={navClass("/my-booked-sessions")} >My Booked Sessions</Link>
         </div>
 
         {/* Right side  */}
