@@ -4,15 +4,25 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
   const navClass = (path) =>
   `${pathname === path ? "nav-active" : "nav-hover"} font-medium`;
 
-
+ const handleLogout = async () => {
+    await authClient.signOut();
+    router.push("/");
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b">
@@ -35,11 +45,48 @@ export default function Navbar() {
         </div>
 
         {/* Right side  */}
-        <div className="hidden md:flex justify-end items-center gap-4 text-gray-700 font-medium">
-          <Link href="/login" className={navClass("/login")}> Login</Link>
+  {/* Right side */}
+  <div className="hidden md:flex justify-end items-center gap-4 font-medium">
 
-          <Link href="/signup" className={navClass("/signup")}> Signup</Link>
-        </div>
+    {user ? (
+      <div className="flex items-center gap-4">
+
+        {/* Profile */}
+        <div className="flex items-center gap-2">
+  {user?.image ? (
+    <img
+      src={user.image}
+      alt={user.displayName}
+      className="w-8 h-8 rounded-full"
+    />
+  ) : (
+    <div className="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-semibold">
+      {user?.name?.charAt(0).toUpperCase()}
+    </div>
+  )}
+
+  <span className="font-medium text-gray-700">
+    {user?.name}
+  </span>
+</div>
+
+        {/* Logout */}
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white px-3 py-1 rounded-lg hover:opacity-90 transition"
+        >
+          Logout
+        </button>
+
+      </div>
+    ) : (
+      <>
+        <Link href="/login" className={navClass("/login")}>Login</Link>
+        <Link href="/signup" className={navClass("/signup")}>Signup</Link>
+      </>
+    )}
+
+</div>
 
         {/* Mobile Menu Button */}
         <button

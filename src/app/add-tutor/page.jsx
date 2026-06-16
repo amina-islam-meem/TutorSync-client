@@ -90,25 +90,25 @@ export default function AddTutorPage() {
           {/* Available Days */}
           <div>
             <label className="block mb-2 font-medium">Available Days</label>
-            <input type="text" name="availableDays" required className="input-style" />
+            <input type="text" name="availableDays" required className="input-style"placeholder="Sun-Fri" />
           </div>
 
           {/* Time Slot */}
           <div>
             <label className="block mb-2 font-medium">Time Slot</label>
-            <input type="text" name="timeSlot" required className="input-style" />
+            <input type="text" name="timeSlot" required className="input-style" placeholder="4:00 PM - 6:00 PM"/>
           </div>
 
           {/* Hourly Fee */}
           <div>
             <label className="block mb-2 font-medium">Hourly Fee</label>
-            <input type="number" name="hourlyFee" required className="input-style" />
+            <input type="number" name="hourlyFee" required className="input-style" placeholder="40" />
           </div>
 
           {/* Total Slot */}
           <div>
             <label className="block mb-2 font-medium">Total Slot</label>
-            <input type="number" name="totalSlot" required className="input-style" />
+            <input type="number" name="totalSlot" required className="input-style" placeholder="3"/>
           </div>
 
           {/* Start Date */}
@@ -120,13 +120,13 @@ export default function AddTutorPage() {
           {/* Location */}
           <div>
             <label className="block mb-2 font-medium">Location</label>
-            <input type="text" name="location" required className="input-style" />
+            <input type="text" name="location" required className="input-style" placeholder="Cumilla"/>
           </div>
 
           {/* Experience */}
           <div className="md:col-span-2">
             <label className="block mb-2 font-medium">Institution & Experience</label>
-            <textarea name="experience" rows="3" required className="input-style"></textarea>
+            <textarea name="experience" rows="3" required className="input-style" placeholder="Institution name"></textarea>
           </div>
 
           {/* Submit Button */}
