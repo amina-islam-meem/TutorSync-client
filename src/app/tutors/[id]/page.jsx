@@ -1,21 +1,42 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { use } from "react";
 
-export default async function TutorDetailsPage(props) {
-  const params = await props.params;
-  const id = params.id;
+
+const TutorDetailsPage = async (props) => {
+  // ✅ unwrap params using React.use()
+  const { id } = use(props.params);
 
   if (!id) return notFound();
 
+  // ✅ unwrap headers
+  const requestHeaders = await headers();
+
+  const session = await auth.api.getSession({
+    headers: requestHeaders,
+  });
+
+  if (!session?.user) return notFound();
+
+  const { token } = await auth.api.getToken({
+    headers: requestHeaders,
+  });
+
   const res = await fetch(
     `http://localhost:7000/tutors/${id}`,
-    { cache: "no-store" }
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      cache: "no-store",
+    }
   );
 
   if (!res.ok) return notFound();
 
   const tutor = await res.json();
-
   return (
     <section className="py-20 bg-gray-50 min-h-screen ">
       <div className="max-w-5xl mx-auto bg-white  p-10 rounded-2xl shadow-xl">
@@ -61,3 +82,5 @@ export default async function TutorDetailsPage(props) {
     </section>
   );
 }
+
+export default TutorDetailsPage;
