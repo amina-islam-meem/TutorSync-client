@@ -12,7 +12,7 @@ async function getTutors(search, startDate, endDate) {
   if (endDate) query.append("endDate", endDate);
 
   const res = await fetch(
-    `http://localhost:7000/tutors?${query.toString()}`,
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${query.toString()}`,
     { cache: "no-store" }
   );
 

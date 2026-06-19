@@ -16,7 +16,7 @@ export default function MyTutors() {
   useEffect(() => {
     if (!userId) return;
 
-    fetch(`http://localhost:7000/my-tutors/${userId}`)
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setTutors(data);
@@ -30,7 +30,7 @@ export default function MyTutors() {
   const handleDelete = async (id) => {
     try {
       const res = await fetch(
-        `http://localhost:7000/tutors/${id}`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${id}`,
         { method: "DELETE" }
       );
 
@@ -60,7 +60,7 @@ export default function MyTutors() {
 
     try {
       const res = await fetch(
-        `http://localhost:7000/tutors/${editingTutor._id}`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${editingTutor._id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },

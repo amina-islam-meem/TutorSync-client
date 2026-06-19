@@ -31,7 +31,7 @@ export default function BookSessionClient({ tutor }) {
     booking.studentEmail = userEmail;
 
     try {
-      const res = await fetch("http://localhost:7000/bookings", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

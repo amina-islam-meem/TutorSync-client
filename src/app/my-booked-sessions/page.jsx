@@ -15,7 +15,7 @@ export default function MyBookedSessions() {
   useEffect(() => {
     if (!userEmail) return;
 
-    fetch(`http://localhost:7000/bookings/${userEmail}`)
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);

@@ -3,7 +3,7 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 export default async function TutorsPage() {
-  const res = await fetch("http://localhost:7000/available-tutors");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/available-tutors`);
 
   if (!res.ok) {
     return <div>Failed to load tutors</div>;
