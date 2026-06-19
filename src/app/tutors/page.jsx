@@ -5,18 +5,27 @@ export const metadata = {
 };
 
 async function getTutors(search, startDate, endDate) {
-  const query = new URLSearchParams();
+  try {
+    const query = new URLSearchParams();
+    if (search) query.append("search", search);
+    if (startDate) query.append("startDate", startDate);
+    if (endDate) query.append("endDate", endDate);
 
-  if (search) query.append("search", search);
-  if (startDate) query.append("startDate", startDate);
-  if (endDate) query.append("endDate", endDate);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${query.toString()}`,
+      { cache: "no-store" }
+    );
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${query.toString()}`,
-    { cache: "no-store" }
-  );
+    if (!res.ok) {
+      console.error("Failed to fetch tutors:", res.status);
+      return [];
+    }
 
-  return res.json();
+    return await res.json();
+  } catch (error) {
+    console.error("Fetch error:", error);
+    return [];
+  }
 }
 
 export default async function TutorsPage(props) {

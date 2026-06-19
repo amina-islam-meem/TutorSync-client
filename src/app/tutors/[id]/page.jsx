@@ -1,25 +1,26 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
-const TutorDetailsPage = async ({ params }) => {
+export default async function TutorDetailsPage({ params }) {
   const { id } = await params;
-
-  if (!id) return notFound();
-
 
   const requestHeaders = await headers();
 
+  // Get session
   const session = await auth.api.getSession({
     headers: requestHeaders,
   });
 
-  //if (!session?.user) return notFound();
+  if (!session?.user) {
+    return redirect("/login");
+  }
 
+  // Instead of getToken(), use session token directly
   const { token } = await auth.api.getToken({
-    headers: requestHeaders,
-  });
+  headers: requestHeaders,
+});
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${id}`,
@@ -31,7 +32,13 @@ const TutorDetailsPage = async ({ params }) => {
     }
   );
 
-  if (!res.ok) return notFound();
+  if (res.status === 401 || res.status === 403) {
+    return redirect("/login");
+  }
+
+  if (!res.ok) {
+    return notFound();
+  }
 
   const tutor = await res.json();
 
@@ -79,6 +86,4 @@ const TutorDetailsPage = async ({ params }) => {
       </div>
     </section>
   );
-};
-
-export default TutorDetailsPage;
+}
