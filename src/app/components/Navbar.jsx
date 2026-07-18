@@ -43,9 +43,9 @@ export default function Navbar() {
           <Link href="/my-tutors" className={navClass("/my-tutors")}> My Tutors </Link>
 
           <Link href="/my-booked-sessions"className={navClass("/my-booked-sessions")} >My Booked Sessions</Link>
+          <Link href="/my-favorites" className={navClass("/my-favorites")}> Favorites</Link>
         </div>
 
-        {/* Right side  */}
   {/* Right side */}
   <div className="hidden md:flex justify-end items-center gap-4 font-medium">
 
@@ -110,6 +110,7 @@ export default function Navbar() {
             <Link href="/my-tutors" onClick={() => setIsOpen(false)}> My Tutors</Link>
 
             <Link href="/my-booked-sessions" onClick={() => setIsOpen(false)}>  My Booked Sessions</Link>
+            <Link href="/my-favorites" onClick={() => setIsOpen(false)}> Favorites</Link>
 
             <div className="border-t pt-4 flex flex-col gap-3">
               <Link href="/login" onClick={() => setIsOpen(false)}>Login</Link>
