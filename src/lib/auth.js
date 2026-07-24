@@ -3,18 +3,10 @@ import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { jwt } from "better-auth/plugins";
 
-const uri = new MongoClient(process.env.MONGODB_URI);
-
-let client;
-let db;
-
-if (!global._mongoClient) {
-  client = new MongoClient(uri);
-  global._mongoClient = client.connect();
-}
+const client = new MongoClient(process.env.MONGODB_URI);
 
 await client.connect();
- db = client.db("tutorsync");
+const db = client.db("tutorsync");
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,   
