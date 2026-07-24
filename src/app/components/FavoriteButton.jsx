@@ -13,7 +13,7 @@ export default function FavoriteButton({ tutorId, token }) {
 
   const checkWishlist = async () => {
     const res = await fetch(
-      `http://localhost:7000/wishlist/check/${tutorId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/wishlist/check/${tutorId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export default function FavoriteButton({ tutorId, token }) {
 
     if (isInWishlist) {
       await fetch(
-        `http://localhost:7000/wishlist/${tutorId}`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/wishlist/${tutorId}`,
         {
           method: "DELETE",
           headers: {
@@ -46,7 +46,7 @@ export default function FavoriteButton({ tutorId, token }) {
       toast.success("Removed from favorites");
     } else {
       await fetch(
-        `http://localhost:7000/wishlist`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/wishlist`,
         {
           method: "POST",
           headers: {

@@ -19,7 +19,7 @@ export default async function FavoritesPage() {
   });
 
   const res = await fetch(
-  `http://localhost:7000/wishlist/${session.user.id}`,
+  `${process.env.NEXT_PUBLIC_SERVER_URL}/wishlist/${session.user.id}`,
   {
     headers: {
       Authorization: `Bearer ${token}`,
