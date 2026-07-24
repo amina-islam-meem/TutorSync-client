@@ -12,18 +12,33 @@ TutorSync is a modern full-stack tutoring platform where students can explore av
 
 ## ✨ Features
 
-- 👩‍🏫 Browse and explore available tutors
-- 🔎 Search tutors by name
-- 📅 Filter tutors based on availability dates
-- 🔐 Secure authentication using Better Auth
-- 👤 User profile management
-- 📚 Book tutoring sessions
-- 📝 View booked sessions in "My Booked Sessions"
-- ➕ Add new tutor profiles
-- ✏️ Update and manage tutor information
-- 🗑️ Delete tutor profiles
-- 🔒 Protected routes with JWT verification
-- 📱 Fully responsive design for all devices
+### ✅ Authentication (Better Auth)
+- Email & Password Login
+- Google OAuth (optional)
+- JWT-based session strategy
+- Secure HTTP-only cookies
+- Protected routes (middleware)
+
+### ✅ Tutor System
+- Browse all tutors
+- View tutor details
+- Filter & search tutors
+- Add new tutor (for tutors)
+- Update & delete tutor
+
+### ✅ Wishlist System
+- Add to Favorites
+- Remove from Favorites
+- My Favorites page
+- Secure user-specific wishlist
+
+### ✅ Booking System
+- Book tutor sessions
+- Prevent booking before start date
+- Auto decrease available slots
+- Cancel booking
+- Auto restore slots after cancellation
+
 
 ---
 
@@ -174,6 +189,7 @@ TutorSync uses Better Auth for secure authentication.
 - `/add-tutor`
 - `/my-tutors`
 - `/my-booked-sessions`
+- `/my-favourites`
 
 ---
 
@@ -187,10 +203,71 @@ TutorSync uses Better Auth for secure authentication.
 | My Booked Sessions | `/my-booked-sessions` | Manage booked sessions |
 | Add Tutor | `/add-tutor` | Create tutor profile |
 | My Tutors | `/my-tutors` | Manage personal tutor listings |
+| Favorites| `/my-favorites` | Wishlist page |
 | Login | `/login` | User authentication |
 | Sign Up | `/signup` | Create new account |
 
 ---
+
+##  Future Improvements
+
+TutorSync is designed to be scalable and production-ready. Below are planned enhancements for future versions:
+
+###  Tutor Rating & Review System
+- Students can leave ratings and written reviews after sessions
+- 1–5 star rating system
+- Average rating displayed on tutor cards
+- Review moderation capability
+- Sorting tutors by rating
+
+---
+
+###  Stripe Payment Integration
+- Secure online payments before booking confirmation
+- Payment verification via Stripe Webhooks
+- Booking auto-confirmation after successful payment
+- Transaction history for users
+- Refund handling for cancelled sessions
+
+---
+
+### Tutor Dashboard Analytics
+- Total bookings overview
+- Monthly earnings statistics
+- Session history insights
+- Student count tracking
+- Graph-based performance analytics (Recharts or Chart.js)
+
+---
+
+###  Email Notifications
+- Booking confirmation emails
+- Cancellation notifications
+- Payment receipts
+- Reminder emails before scheduled sessions
+- Admin notification system
+
+---
+
+###  Real-Time Chat System
+- Direct messaging between student and tutor
+- WebSocket-based communication (Socket.io)
+- Message history storage in MongoDB
+- Online/offline user indicators
+- Secure authenticated chat sessions
+
+---
+
+###  Admin Panel
+- Admin role-based access control
+- View and manage all users
+- Monitor bookings and payments
+- Ban or suspend users
+- Platform-wide analytics dashboard
+
+---
+
+ These improvements will elevate TutorSync into a fully production-grade tutoring marketplace platform.
 
 ## 🏗️ Production Build
 
@@ -202,7 +279,7 @@ npm start
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome!
 
@@ -229,7 +306,7 @@ git push origin feature/AmazingFeature
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
 ### Amina Islam Meem
 
