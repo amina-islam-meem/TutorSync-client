@@ -17,5 +17,6 @@ export const config = {
     "/my-booked-sessions",
     "/my-tutors",
     "/add-tutor",
+    "/my-favorites",
   ],
 };
